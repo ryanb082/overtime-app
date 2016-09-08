@@ -1,0 +1,4 @@
+class AdminUser < User 
+
+
+end
