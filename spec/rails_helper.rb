@@ -5,6 +5,9 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
+# Code below lets you mimic logging in with capybara
+include Warden::Test::Helpers
+Warden.test_mode!
 
 ActiveRecord::Migration.maintain_test_schema!
 

@@ -16,3 +16,7 @@
 
 ## UI:
 Bootstrap -> formatting
+
+## To Dos:
+Refactor post association spec
+
