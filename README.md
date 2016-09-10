@@ -18,5 +18,7 @@
 Bootstrap -> formatting
 
 ## To Dos:
-Refactor post association spec
+- Add full_name method for users
+- Refactor post association spec
+
 
