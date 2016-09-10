@@ -6,15 +6,16 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<div class='container'>
-  <div class='row'>
-    <div class='col-md-12'>
-      <body>
-      <%= render 'shared/nav' %>
-      <%= yield %>
-      </body>
+<body>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-12'>
+        <%= render 'shared/nav' %>
+        <%= yield %>
+      </div>
     </div>
   </div>
-</div>
-</div>
+  
+  <%= js add_gritter(flash[:notice], title: "Overtime App Notification", sticky: false, image: :notice) %>
+</body>
 </html>

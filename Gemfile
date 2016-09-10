@@ -27,6 +27,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # For authenitcation
 gem 'devise', '~> 4.2'
 
+gem 'gritter', '1.2.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
