@@ -20,6 +20,7 @@ Bootstrap -> formatting
 
 ## To Dos:
 - Add full_name method for users
+- refactor post_form for admin user with status
 x Refactor post association spec
 
 
