@@ -11,6 +11,7 @@
 - Approval Workflow
 - SMS Sending -> link to approval or overtime input
 - Administrate admin dashboard
+- Block non admin and guest users
 - Email summary to managers for approval
 - Needs to be documented if employee did not log overtime
 
@@ -19,6 +20,7 @@ Bootstrap -> formatting
 
 ## To Dos:
 - Add full_name method for users
-- Refactor post association spec
+x Refactor post association spec
+
 
 
