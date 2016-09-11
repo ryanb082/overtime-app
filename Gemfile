@@ -31,6 +31,7 @@ gem 'gritter', '1.2.0'
 
 gem 'administrate', "~> 0.2.2"
 gem 'bourbon'
+gem 'pundit', "~> 1.1.0"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
