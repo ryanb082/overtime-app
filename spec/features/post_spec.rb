@@ -26,6 +26,12 @@ describe 'navigate' do
       visit posts_path 
       expect(page).to have_content(/Rationale|content/)
     end
+
+    it 'has a scope so that only post creators can their post' do
+      post1 = FactoryGirl.build_stubbed(:post)
+      post2 = FactoryGirl.build_stubbed(:second_post)
+      post_from_other_user = FactoryGirl.build_stubbed(:post_from_other_user)
+    end
   end
 
   describe 'new' do
