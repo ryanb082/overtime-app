@@ -21,6 +21,7 @@ Bootstrap -> formatting
 ## To Dos:
 - Add full_name method for users
 - refactor post_form for admin user with status
+- Fix post spec.rb line 82 to use factories
 x Refactor post association spec
 
 
