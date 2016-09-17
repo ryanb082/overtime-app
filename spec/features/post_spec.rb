@@ -28,7 +28,7 @@ describe 'navigate' do
     it 'has a list of posts' do
       post1 = FactoryGirl.build_stubbed(:post)
       post2 = FactoryGirl.build_stubbed(:second_post)
-      visit posts_path 
+      visit posts_path
       expect(page).to have_content(/Rationale|content/)
     end
 
@@ -58,7 +58,7 @@ describe 'navigate' do
       delete_user = FactoryGirl.create(:user)
       login_as(delete_user, :scope => :user)
       post_to_delete = Post.create(date: Date.today, rationale: "Some rationale", user_id: delete_user.id)
-      
+
       visit posts_path
 
       click_link("delete_post_#{post_to_delete.id}from_index")
@@ -93,7 +93,7 @@ describe 'navigate' do
   end
 
   describe 'edit' do
-    
+
     it 'can be edited' do
       visit edit_post_path(post)
 
@@ -104,7 +104,7 @@ describe 'navigate' do
       expect(page).to have_content('Edited content')
     end
 
-    it 'cannot be edited by a non-authorized user' do
+    it 'cannot be edited by a non authorized user' do
       logout(:user)
       non_authorized_user = FactoryGirl.create(:non_authorized_user)
       login_as(non_authorized_user, :scope => :user)

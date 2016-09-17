@@ -1,56 +1,60 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+	before_action :set_post, only: [:show, :edit, :update, :destroy, :approve]
 
-  def index
-    @posts = Post.posts_by current_user
-  end
+	def index
+		@posts = Post.posts_by(current_user).page(params[:page]).per(10)
+	end
 
-  def new
-    @post = Post.new
-  end
+	def approve
+		authorize @post
+		@post.approved!
+		redirect_to root_path, notice: "The post has been approved"
+	end
 
-  def create
-    @post = Post.new(post_params)
-    @post.user_id = current_user.id
-    if @post.save
-      redirect_to @post, notice: 'Your post was created successfully'
-    else 
-      render :new
-    end
-  end
+	def new
+		@post = Post.new
+	end
 
-  def edit
-    authorize @post
-  end
+	def create
+		@post = Post.new(post_params)
+		@post.user_id = current_user.id
 
-  def show
-    @post = Post.find(params[:id])
+		if @post.save
+			redirect_to @post, notice: 'Your post was created successfully'
+		else
+			render :new
+		end
+	end
 
-  end
+	def edit
+		authorize @post
+	end
 
-  def update
-    authorize @post
+	def update
+		authorize @post
 
-    if @post.update(post_params)
-      redirect_to @post, notice: 'Your post was updated successfully'
-    else
-      render :edit
-    end
-  end
+		if @post.update(post_params)
+			redirect_to @post, notice: 'Your post was edited successfully'
+		else
+			render :edit
+		end
+	end
 
-  def destroy
+	def show
+	end
+
+	def destroy
     @post.delete
-    redirect_to posts_path, notice: 'Your post was deleted'
-  end
+    redirect_to posts_path, notice: 'Your post was deleted successfully'
+	end
 
+	private
 
-  private
+	  def post_params
+	  	params.require(:post).permit(:date, :rationale, :status)
+	  end
 
-  def post_params
-    params.require(:post).permit(:date, :rationale, :status)
-  end
-
-  def set_post
-    @post = Post.find(params[:id])
-  end
+	  def set_post
+	  	@post = Post.find(params[:id])
+	  end
 end
